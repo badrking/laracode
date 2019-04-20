@@ -5,12 +5,13 @@
  */
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 footer {
     margin: 50px 0;
 }
+
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -8361,7 +8362,9 @@ body {
         border-left: 1px solid #e7e7e7;
     }
 }
-
+.navbar-static-top{
+  display:block;
+}
 .navbar-top-links {
     margin-right: 0;
 }
@@ -8431,6 +8434,7 @@ body {
 
 .sidebar ul li {
     border-bottom: 1px solid #e7e7e7;
+    width:100%;
 }
 
 .sidebar ul li a.active {
