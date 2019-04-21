@@ -37,7 +37,7 @@
           {!! Form::submit('Update User',['class'=>'btn btn-primary col-sm-3 mr-2']) !!}
     </div>
     {!! Form::close() !!}
-
+      {{-- DELETE Button --}}
     {!! Form::model($user,['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
     @csrf
       <div class="form-group">
