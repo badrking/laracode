@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
           {!! Form::label('status','Status') !!}
-          {!! Form::select('status',array(1=>'Active',0=>'Inactive'),0,['class'=>'form-control']) !!}
+          {!! Form::select('status',array(1=>'Active',0=>'Inactive'),null,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
           {!! Form::submit('Create User',['class'=>'btn btn-primary']) !!}

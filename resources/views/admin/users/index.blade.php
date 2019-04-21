@@ -1,5 +1,15 @@
 @extends('layouts.admin')
 @section('content')
+  @if (Session::has('deleted_user'))
+    <p class="alert alert-danger">{{ session('deleted_user') }}</p>
+  @endif
+  @if (Session::has('created_user'))
+    <p class="alert alert-success">{{ session('created_user') }}</p>
+  @endif
+  @if (Session::has('edited_user'))
+    <p class="alert alert-info">{{ session('edited_user') }}</p>
+  @endif
+
     <h1>Users</h1>
 <table class="table">
     <thead>
@@ -19,12 +29,13 @@
         @foreach ($users as $user)
           <tr>
             <th scope="row">{{ $user->id}}</th>
-            <td>{{ $user->name }}</td>
+            <td><a href="{{ route('users.edit',$user->id) }}">{{ $user->name }}</a></td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->photo }}</td>
+            <td><img width="90px" height="50px" src="{{ $user->photo ? '..'.$user->photo->file : 'Photo Unavaible' }}"></td>
             <td>{{ $user->role->name }}</td>
-            <td>{{ $user->active == 1 ? "Active" : "Inactive" }}</td>
+            <td>{{ $user->status == 1 ? "Active" : "Inactive" }}</td>
             <td>{{ $user->created_at->diffForHumans() }}</td>
+            <td><button class="btn btn-danger">Delete</button></td>
           </tr>
         @endforeach
 
