@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Session;
 use App\Post;
 use App\Photo;
 use App\Category;
+use App\Comment;
+use App\CommentReply;
 
 class AdminPostController extends Controller
 {
@@ -113,5 +115,10 @@ class AdminPostController extends Controller
         $post->delete();
         Session::flash('deleted_post','The Post has been deleted');
         return redirect('admin/posts');
+    }
+    public function post($id){
+      $post = Post::findOrFail($id);
+      $comments = $post->comments;
+      return view('post',compact('post','comments'));
     }
 }

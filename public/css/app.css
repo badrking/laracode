@@ -10667,3 +10667,13 @@ a.text-dark:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.round_photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 75px;
+}
+
+.comment-reply {
+  display: none;
+}
+
