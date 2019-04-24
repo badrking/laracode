@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostCreateRequest;
 use Illuminate\Support\Facades\Auth;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Session;
 use App\Post;
 use App\Photo;
@@ -21,7 +22,10 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
+      //PAGINATION
+        // $posts=Post::all();
+        $posts=Post::paginate(2);
+
         return view('admin.posts.index',compact('posts'));
     }
 
@@ -116,8 +120,8 @@ class AdminPostController extends Controller
         Session::flash('deleted_post','The Post has been deleted');
         return redirect('admin/posts');
     }
-    public function post($id){
-      $post = Post::findOrFail($id);
+    public function post($slug){
+      $post = Post::findBySlugOrFail($slug);
       $comments = $post->comments;
       return view('post',compact('post','comments'));
     }

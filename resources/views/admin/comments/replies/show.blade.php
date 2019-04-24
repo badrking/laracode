@@ -21,7 +21,7 @@
                 <td>{{ $reply->author }}</td>
                 <td>{{ str_limit($reply->body,100) }}</td>
                 <td>{{ $reply->created_at ? $reply->created_at->diffForHumans() :'Unknown' }}</td>
-                <td ><a href="{!! route('home.post',$reply->comment->post->id) !!}">{{ "View Post" }}</a></td>
+                <td ><a href="{!! route('home.post',$reply->comment->post->slug) !!}">{{ "View Post" }}</a></td>
 
                 <td><a href="{!! route('comments.index',$reply->comment->id) !!}">View  Comment</a></td>
                 <td>

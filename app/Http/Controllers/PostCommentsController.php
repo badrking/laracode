@@ -16,7 +16,7 @@ class PostCommentsController extends Controller
      */
     public function index()
     {
-      $comments = Comment::all();
+      $comments = Comment::paginate(5);
         return view('admin.comments.index',compact('comments'));
     }
 

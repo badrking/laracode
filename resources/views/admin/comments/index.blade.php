@@ -21,7 +21,7 @@
                 <td>{{ $comment->author }}</td>
                 <td>{{ str_limit($comment->body,100) }}</td>
                 <td>{{ $comment->created_at ? $comment->created_at->diffForHumans() :'Unknown' }}</td>
-                <td ><a href="{!! route('home.post',$comment->post->id) !!}">{{ "View Post" }}</a></td>
+                <td ><a href="{!! route('home.post',$comment->post->slug) !!}">{{ "View Post" }}</a></td>
                 <td><a href="{!! route('replies.show',$comment->id) !!}">View Replies</a></td>
                 <td>
                 {{-- Approving --}}
@@ -56,6 +56,11 @@
           @endforeach
         </tbody>
     </table>
+    <div class="row">
+        <div class="col-sm-offset-5">
+            {{ $comments->render() }}
+        </div>
+    </div>
   @else
     <h1 class="text-center">No Comments</h1>
     @endif
