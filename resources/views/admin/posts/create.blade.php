@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 @section('content')
+
+  @include('includes.tinyeditor')
+
   <h1 class="mb-5">Create a Post</h1>
   {!! Form::open(['method'=>'POST','action'=>'AdminPostController@store','files'=>true]) !!}
   @csrf
@@ -18,7 +21,7 @@
       </div>
       <div class="form-group">
             {!! Form::label('body','Content') !!}
-            {!! Form::textarea('body',null,['class'=>'form-control','rows'=>3]) !!}
+            {!! Form::textarea('body',null,['class'=>'form-control my-editor','rows'=>3]) !!}
       </div>
       <div class="form-group">
             {!! Form::submit('Create Post',['class'=>'btn btn-primary']) !!}

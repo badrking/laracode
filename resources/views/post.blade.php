@@ -21,12 +21,12 @@
               <hr>
 
               <!-- Preview Image -->
-              <img class="img-responsive img-fluid img-rounded" src="{{ '..'.$post->photo->file }}" alt="">
+              <img class="img-responsive img-fluid img-rounded" src="{{ $post->photo ? '..'.$post->photo->file : null }}" alt="">
 
               <hr>
 
               <!-- Post Content -->
-              <p class="lead">{{ $post->body }}</p>
+              <p class="lead">{!! $post->body !!}</p>
               <hr>
               @if (Session::has('posted_comment'))
                 <p class="alert alert-success">{{ session('posted_comment') }}</p>

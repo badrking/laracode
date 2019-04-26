@@ -32,7 +32,7 @@
           <td>{{ $post->user->name }}</td>
           <td>{{ $post->category ? $post->category->name : "Uncategorized" }}</td>
           <td><img width="90px" height="50px" src="{{ $post->photo ? '..'.$post->photo->file : 'Photo Unavaible' }}"></td>
-          <td>{{ str_limit($post->body,100) }}</td>
+          <td>{!! str_limit($post->body,100) !!}</td>
           <td><a href="{!! route('home.post',$post->slug) !!}">{{ "View Post" }}</a> </td>
           <td>{{ $post->created_at->diffForHumans() }}</td>
         </tr>

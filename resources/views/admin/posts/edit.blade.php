@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+  @include('includes.tinyeditor')
+
   <h1>Edit Posts</h1>
   {!! Form::model($post,['method'=>'PATCH','action'=>['AdminPostController@update',$post->id],'files'=>true]) !!}
   @csrf
@@ -21,7 +23,7 @@
     </div>
     <div class="form-group">
       {!! Form::label('body','Content') !!}
-      {!! Form::text('body',null,['class'=>'form-control']) !!}
+      {!! Form::textarea('body',null,['class'=>'form-control my-editor']) !!}
     </div>
 
     <div class="form-group">
